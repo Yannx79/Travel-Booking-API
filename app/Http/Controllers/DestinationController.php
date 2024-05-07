@@ -10,7 +10,7 @@ class DestinationController extends Controller
 
     public function index()
     {
-        $destinations = Destination::all();
+        $destinations = Destination::paginate(10);
         $data = [
             'destinations' => $destinations,
             'status' => 200
