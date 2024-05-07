@@ -71,7 +71,16 @@ class EmployeeController extends Controller
 
     public function destroy(string $id)
     {
-        
+        $employee = Employee::find($id);
+        if (!$employee) {
+            $data = [
+                'message' => 'Employee not found',
+                'status' => 404
+            ];
+            return response()->json($data, 404);
+        }
+        $employee->delete();
+        return response()->json(null, 204);
     }
 
 }
