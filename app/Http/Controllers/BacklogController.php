@@ -9,7 +9,7 @@ class BacklogController extends Controller
 {
     public function index()
     {
-        $backlogs = Backlog::all();
+        $backlogs = Backlog::paginate(10);
         $data = [
             'backlogs' => $backlogs,
             'status' => 200
